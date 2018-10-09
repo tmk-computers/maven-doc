@@ -270,8 +270,8 @@ A Build Lifecycle is Made Up of Phases
         <packaging>..</packaging>
 
         <....other dependencies..>
-        
-## Local Repo
+## Repositories     
+### Local Repo
 - Where Maven stores everything it downloads
     - Installs in your **"home directory"\.m2**
     - C:\Users\<yourusername>\.m2\repository
@@ -285,6 +285,8 @@ A Build Lifecycle is Made Up of Phases
 - Stores artifacts using the information that you provided for **artifactId**, **groupId**, and **version**
     - C:\Users\<yourusername>\.m2\repository\commons-lang\commons-lang\2.1\commons-lang-2.1.jar
 - Avoids duplication by copying it in every project and storing it in your SCM
+
+
 
 ## Versions
 - **Development starts off as a SNAPSHOT**
@@ -300,3 +302,17 @@ A Build Lifecycle is Made Up of Phases
     - myapp-1.0-RC1.jar (release candidate)
     - myapp-1.0-RELEASE.jar (release)
     - myapp-1.0-Final.jar (release)
+    
+## core packaging types:
+- pom, jar, maven-plugin, ejb, war, ear, rar, par
+- The default packaging type is jar
+- The type of pom is referred to as a dependency pom
+- Downloads dependencies from that pom
+
+## Plugins
+
+- Maven is - at its heart - a plugin execution framework; all work is done by plugins. Looking for a specific goal to execute? This page lists the core plugins and others. There are the build and the reporting plugins:
+
+    - **Build plugins** will be executed during the build and they should be configured in the **<build/>** element from the POM.
+    - **Reporting plugins** will be executed during the site generation and they should be configured in the **<reporting/>** element from the POM. Because the result of a Reporting plugin is part of the generated site, Reporting plugins should be both internationalized and localized. 
+
