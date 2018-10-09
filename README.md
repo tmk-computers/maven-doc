@@ -270,3 +270,33 @@ A Build Lifecycle is Made Up of Phases
         <packaging>..</packaging>
 
         <....other dependencies..>
+        
+## Local Repo
+- Where Maven stores everything it downloads
+    - Installs in your **"home directory"\.m2**
+    - C:\Users\<yourusername>\.m2\repository
+    
+        <dependency>
+            <groupId>commons-lang</groupId>
+            <artifactId>commons-lang</artifactId>
+            <version>2.1</version>
+        </dependency>
+    
+- Stores artifacts using the information that you provided for **artifactId**, **groupId**, and **version**
+    - C:\Users\<yourusername>\.m2\repository\commons-lang\commons-lang\2.1\commons-lang-2.1.jar
+- Avoids duplication by copying it in every project and storing it in your SCM
+
+## Versions
+- **Development starts off as a SNAPSHOT**
+    - myapp-1.0-SNAPSHOT.jar
+    - Changes always downloaded
+    - Saves you from rereleasing versions for development
+    - Never deploy to production with a SNAPSHOT
+- **A release doesn’t have a specific naming convention**
+    - myapp-1.0.jar
+    - myapp-1.0.1.jar
+- **Industry common terms, but don’t affect maven**
+    - myapp-1.0-M1.jar (milestone release)
+    - myapp-1.0-RC1.jar (release candidate)
+    - myapp-1.0-RELEASE.jar (release)
+    - myapp-1.0-Final.jar (release)
