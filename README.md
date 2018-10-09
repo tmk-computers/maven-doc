@@ -144,11 +144,70 @@ A Build Lifecycle is Made Up of Phases
 - There are 6 scopes available:
 
     - **compile** - This is the default scope, used if none is specified. Compile dependencies are available in all classpaths of a project. Furthermore, those dependencies are propagated to dependent projects.
+    
+            <dependencies>
+                <dependency>
+                    <groupId>log4j</groupId>
+                    <artifactId>log4j</artifactId>
+                    <version>1.2.14</version>
+                    <!-- You can ommit this because it is default -->
+                    <scope>compile</scope>
+                </dependency>
+            </dependencies>
+        
     - **provided** - This is much like compile, but indicates you expect the JDK or a container to provide the dependency at runtime. For example, when building a web application for the Java Enterprise Edition, you would set the dependency on the Servlet API and related Java EE APIs to scope provided because the web container provides those classes. This scope is only available on the compilation and test classpath, and is not transitive.
+    
+            <dependency>
+                <groupId>javax.servlet</groupId>
+                <artifactId>servlet-api</artifactId>
+                <version>3.0.1</version>
+                <scope>provided</scope>
+            </dependency>
+    
     - **runtime** - This scope indicates that the dependency is not required for compilation, but is for execution. It is in the runtime and test classpaths, but not the compile classpath.
+    
+    
+            <dependency>
+                <groupId>com.thoughtworks.xstream</groupId>
+                <artifactId>xstream</artifactId>
+                <version>1.4.4</version>
+                <scope>runtime</scope>
+            </dependency>
+    
+    
     - **test** - This scope indicates that the dependency is not required for normal use of the application, and is only available for the test compilation and execution phases. This scope is not transitive.
+    
+            <dependency>
+                <groupId>junit</groupId>
+                <artifactId>junit</artifactId>
+                <version>4.12</version>
+                <scope>test</scope>
+            </dependency>
+    
     - **system** - This scope is similar to provided except that you have to provide the JAR which contains it explicitly. The artifact is always available and is not looked up in a repository.
+    
+            <dependency>
+                <groupId>extDependency</groupId>
+                <artifactId>extDependency</artifactId>
+                <scope>system</scope>
+                <version>1.0</version>
+                <systemPath>${basedir}\war\WEB-INF\lib\extDependency.jar</systemPath>
+            </dependency>
+    
     - **import** - This scope is only supported on a dependency of type pom in the <dependencyManagement> section. It indicates the dependency to be replaced with the effective list of dependencies in the specified POM's <dependencyManagement> section. Since they are replaced, dependencies with a scope of import do not actually participate in limiting the transitivity of a dependency.
+    
+            <dependencyManagement>
+                <dependencies>
+                    <dependency>
+                        <groupId>other.pom.group.id</groupId>
+                        <artifactId>other-pom-artifact-id</artifactId>
+                        <version>SNAPSHOT</version>
+                        <scope>import</scope>
+                        <type>pom</type>
+                    </dependency>  
+                </dependencies>
+            </dependencyManagement>
+    
 
 ## Maven multi-module project
     .
