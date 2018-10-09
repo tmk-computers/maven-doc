@@ -455,3 +455,20 @@ A Build Lifecycle is Made Up of Phases
                     </execution>
                 </executions>
             </plugin>
+
+### Source Plugin
+- Used to attach source code to a jar
+- http://maven.apache.org/plugins/maven-source-plugin/index.html
+- Tied to the package phase
+    - Often overridden to a later phase
+    
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-source-plugin</artifactId>
+                    <version>3.0.1</version>
+                    <configuration>
+                        <outputDirectory>/absolute/path/to/the/output/directory</outputDirectory>
+                        <finalName>filename-of-generated-jar-file</finalName>
+                        <attach>false</attach>
+                    </configuration>
+                </plugin>
