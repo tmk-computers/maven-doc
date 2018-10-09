@@ -123,6 +123,27 @@ A Build Lifecycle is Made Up of Phases
     - **install** - install the package into the local repository, for use as a dependency in other projects locally
     - **deploy** - done in the build environment, copies the final package to the remote repository for sharing with other developers and projects.
     
+## Goals
+- The default goals are plugins configured in the maven install
+    - clean, compile, test, package, install, deploy
+- Super pom has these goals defined in it, which are added to your effective pom:
+
+            <plugin>            
+                <artifactId>maven-clean-plugin</artifactId>
+                <version>2.4.1</version>
+                <executions>
+                    <execution>
+                        <id>default-clean</id>
+                        <phase>clean</phase>                
+                        <goals>
+                            <goal>clean</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+- Goals are tied to a phase
+    
 # Usual Command Line Calls
 
 - In a development environment, use the following call to build and install artifacts into the local repository.
@@ -364,6 +385,7 @@ A Build Lifecycle is Made Up of Phases
 
 - Maven is - at its heart - a plugin execution framework; all work is done by plugins. Looking for a specific goal to execute? This page lists the core plugins and others. There are the build and the reporting plugins:
 
-    - **Build plugins** will be executed during the build and they should be configured in the **<build/>** element from the POM.
-    - **Reporting plugins** will be executed during the site generation and they should be configured in the **<reporting/>** element from the POM. Because the result of a Reporting plugin is part of the generated site, Reporting plugins should be both internationalized and localized. 
+    - **Build plugins** will be executed during the build and they should be configured in the `<build/>` element from the POM.
+    - **Reporting plugins** will be executed during the site generation and they should be configured in the `<reporting/>` element from the POM. Because the result of a Reporting plugin is part of the generated site, Reporting plugins should be both internationalized and localized. 
+
 
