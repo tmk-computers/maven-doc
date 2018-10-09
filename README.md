@@ -486,20 +486,20 @@ A Build Lifecycle is Made Up of Phases
 
 ##### The Javadoc Plugin has 14 goals:
 
-    - javadoc:javadoc generates the Javadoc files for the project. It executes the standard Javadoc tool and supports the parameters used by the tool.
-    - javadoc:test-javadoc generates the test Javadoc files for the project. It executes the standard Javadoc tool and supports the parameters used by the tool.
-    - javadoc:javadoc-no-fork generates the Javadoc files for the project. It executes the standard Javadoc tool and supports the parameters used by the tool without forking the generate-sources phase again. Note that this goal does require generation of test sources before site generation, e.g. by invoking mvn clean deploy site.
-    - javadoc:test-javadoc-no-fork generates the test Javadoc files for the project. It executes the standard Javadoc tool and supports the parameters used by the tool without forking the generate-test-sources phase again. Note that this goal does require generation of test sources before site generation, e.g. by invoking mvn clean deploy site.
-    - javadoc:aggregate generates the Javadoc files for an aggregator project. It executes the standard Javadoc tool and supports the parameters used by the tool.
-    - javadoc:test-aggregate generates the test Javadoc files for an aggregator project. It executes the standard Javadoc tool and supports the parameters used by the tool.
-    - javadoc:jar creates an archive file of the generated Javadocs. It is used during the release process to create the Javadoc artifact for the project's release. This artifact is uploaded to the remote repository along with the project's compiled binary and source archive.
-    - javadoc:test-jar creates an archive file of the generated Test Javadocs.
-    - javadoc:aggregate-jar creates an archive file of the generated Javadocs for an aggregator project.
-    - javadoc:test-aggregate-jar creates an archive file of the generated Test Javadocs for an aggregator project.
-    - javadoc:fix is an interactive goal which fixes the Javadoc documentation and tags for the Java files.
-    - javadoc:test-fix is an interactive goal which fixes the Javadoc documentation and tags for the test Java files.
-    - javadoc:resource-bundle bundles the javadocDirectory along with Javadoc configuration options such as taglet, doclet, and link information into a deployable artifact.
-    - javadoc:test-resource-bundle bundles the testJavadocDirectory along with Javadoc configuration options such as taglet, doclet, and link information into a deployable artifact.
+- **javadoc:javadoc** generates the Javadoc files for the project. It executes the standard Javadoc tool and supports the parameters used by the tool.
+- **javadoc:test-javadoc** generates the test Javadoc files for the project. It executes the standard Javadoc tool and supports the parameters used by the tool.
+- **javadoc:javadoc-no-fork** generates the Javadoc files for the project. It executes the standard Javadoc tool and supports the parameters used by the tool without forking the generate-sources phase again. Note that this goal does require generation of test sources before site generation, e.g. by invoking mvn clean deploy site.
+- **javadoc:test-javadoc-no-fork** generates the test Javadoc files for the project. It executes the standard Javadoc tool and supports the parameters used by the tool without forking the generate-test-sources phase again. Note that this goal does require generation of test sources before site generation, e.g. by invoking mvn clean deploy site.
+- **javadoc:aggregate** generates the Javadoc files for an aggregator project. It executes the standard Javadoc tool and supports the parameters used by the tool.
+- **javadoc:test-aggregate** generates the test Javadoc files for an aggregator project. It executes the standard Javadoc tool and supports the parameters used by the tool.
+- **javadoc:jar** creates an archive file of the generated Javadocs. It is used during the release process to create the Javadoc artifact for the project's release. This artifact is uploaded to the remote repository along with the project's compiled binary and source archive.
+- **javadoc:test-jar** creates an archive file of the generated Test Javadocs.
+- **javadoc:aggregate-jar** creates an archive file of the generated Javadocs for an aggregator project.
+- **javadoc:test-aggregate-jar** creates an archive file of the generated Test Javadocs for an aggregator project.
+- **javadoc:fix** is an interactive goal which fixes the Javadoc documentation and tags for the Java files.
+- **javadoc:test-fix** is an interactive goal which fixes the Javadoc documentation and tags for the test Java files.
+- **javadoc:resource-bundle** bundles the javadocDirectory along with Javadoc configuration options such as taglet, doclet, and link information into a deployable artifact.
+- **javadoc:test-resource-bundle** bundles the testJavadocDirectory along with Javadoc configuration options such as taglet, doclet, and link information into a deployable artifact.
     
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
