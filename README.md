@@ -321,6 +321,23 @@ A Build Lifecycle is Made Up of Phases
             </repository>
         </repositories>
 
+### Plugin Repository
+- Identical to Dependency Repositories, just deals with Plugins
+- Will only look for Plugins, by design usually a separate repository
+
+        <pluginRepositories>
+            <pluginRepository>                
+                <id>acme corp</id>
+                <name>Acme Corporate International Repository</name>
+                <url>http://acmecorp.com/plugins</url>
+                <snapshots>
+                    <enabled>true</enabled>
+                </snapshot>
+                <releases>
+                    <enabled>true</enabled>
+                </releases>
+            </pluginRepository>
+        </pluginRepositories>
 
 ## Versions
 - **Development starts off as a SNAPSHOT**
