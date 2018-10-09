@@ -294,14 +294,14 @@ A Build Lifecycle is Made Up of Phases
 ## Repositories     
 ### Local Repo
 - Where Maven stores everything it downloads
-    - Installs in your **"home directory"\.m2**
-    - C:\Users\<yourusername>\.m2\repository
+    - Installs in your **HomeDirectory\\.m2**
+    - C:\Users\<yourusername>\\.m2\repository
     
-        <dependency>
-            <groupId>commons-lang</groupId>
-            <artifactId>commons-lang</artifactId>
-            <version>2.1</version>
-        </dependency>
+            <dependency>
+                <groupId>commons-lang</groupId>
+                <artifactId>commons-lang</artifactId>
+                <version>2.1</version>
+            </dependency>
     
 - Stores artifacts using the information that you provided for **artifactId**, **groupId**, and **version**
     - C:\Users\<yourusername>\.m2\repository\commons-lang\commons-lang\2.1\commons-lang-2.1.jar
@@ -388,4 +388,34 @@ A Build Lifecycle is Made Up of Phases
     - **Build plugins** will be executed during the build and they should be configured in the `<build/>` element from the POM.
     - **Reporting plugins** will be executed during the site generation and they should be configured in the `<reporting/>` element from the POM. Because the result of a Reporting plugin is part of the generated site, Reporting plugins should be both internationalized and localized. 
 
+### Compiler Plugin
+- Used to compile code and test code
+- http://maven.apache.org/plugins/maven-compiler-plugin/index.html
+- Invokes Javac, but with the classpath set from the dependencies
+- Defaults to Java 1.6 regardless of what JDK is installed
+- Configuration section allows customization
+    - Includes/Excludes
+    - Fork
+    - Memory
+    - Source/target
+    
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-compiler-plugin</artifactId>
+            <version>3.8.0</version>
+            <configuration>
+                <verbose>true</verbose>
+                <fork>true</fork>
+                <executable><!-- path-to-javac --></executable>
+                <compilerVersion>1.3</compilerVersion>
+                <source>1.8</source>
+                <target>1.8</target>
+                <meminitial>128m</meminitial>
+                <maxmem>512m</maxmem>
+                <compilerArgs>
+                    <arg>-verbose</arg>
+                    <arg>-Xlint:all,-options,-path</arg>
+                </compilerArgs>
+            </configuration>
+        </plugin>
 
