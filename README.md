@@ -286,6 +286,40 @@ A Build Lifecycle is Made Up of Phases
     - C:\Users\<yourusername>\.m2\repository\commons-lang\commons-lang\2.1\commons-lang-2.1.jar
 - Avoids duplication by copying it in every project and storing it in your SCM
 
+### Dependency Repository
+- Simply just a http accessible location that you download files from
+- Super pom.xml
+    - Default with the Maven installation
+- Default location
+    - http://repo.maven.apache.org/maven2
+- Multiple repositories allowed
+- Corporate Repository
+    - Nexus (this is what the default repo is built on)
+    - Artifactory
+    
+- Dependency Repository
+    - Where we download all of our dependencies from
+    - Can contain just releases and/or snapshots
+    - Not uncommon to have them in separate repositories
+- How do we specify our own repository
+
+        <repositories>
+            <repository>
+                <id>companyname.lib1</id>
+                <url>http://download.companyname.org/maven2/lib1</url>
+            </repository>
+            <repository>
+                <id>spring-snapshot</id>
+                <name>Spring Maven SNAPSHOT Repository</name>
+                <url>http://repo.springsource.org/libs-snapshot</url>
+                <snapshots>
+                    <enabled>true</enabled>
+                </snapshot>
+                <releases>
+                    <enabled>false</enabled>
+                </releases>
+            </repository>
+        </repositories>
 
 
 ## Versions
