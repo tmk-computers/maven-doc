@@ -399,23 +399,59 @@ A Build Lifecycle is Made Up of Phases
     - Memory
     - Source/target
     
-        <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-compiler-plugin</artifactId>
-            <version>3.8.0</version>
-            <configuration>
-                <verbose>true</verbose>
-                <fork>true</fork>
-                <executable><!-- path-to-javac --></executable>
-                <compilerVersion>1.3</compilerVersion>
-                <source>1.8</source>
-                <target>1.8</target>
-                <meminitial>128m</meminitial>
-                <maxmem>512m</maxmem>
-                <compilerArgs>
-                    <arg>-verbose</arg>
-                    <arg>-Xlint:all,-options,-path</arg>
-                </compilerArgs>
-            </configuration>
-        </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.0</version>
+                <configuration>
+                    <verbose>true</verbose>
+                    <fork>true</fork>
+                    <executable><!-- path-to-javac --></executable>
+                    <compilerVersion>1.3</compilerVersion>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                    <meminitial>128m</meminitial>
+                    <maxmem>512m</maxmem>
+                    <compilerArgs>
+                        <arg>-verbose</arg>
+                        <arg>-Xlint:all,-options,-path</arg>
+                    </compilerArgs>
+                </configuration>
+            </plugin>
 
+### Jar Plugin
+- Used to package code into a jar
+- http://maven.apache.org/plugins/maven-jar-plugin/index.html
+- Tied to the package phase
+- Configuration section allows customization
+- Includes/Excludes
+- Manifest
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.1.0</version>
+                <configuration>
+                    <includes>
+                        <include>**/service/*</include>
+                    </includes>
+                    <archive>
+                        <index>true</index>
+                        <manifest>
+                            <addClasspath>true</addClasspath>
+                        </manifest>
+                        <manifestEntries>
+                            <mode>development</mode>
+                            <url>${project.url}</url>
+                            <key>value</key>
+                        </manifestEntries>
+                    </archive>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>test-jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
