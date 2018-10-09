@@ -181,5 +181,33 @@ A Build Lifecycle is Made Up of Phases
         <modules>
             <module>modules-root</module>
         </modules>
+            
+- The module parent will look like this. I will emphasis that this contains only the reference to the moduleA and moduleB and will inherit from the project-root:
+
+        <parent>
+            <groupId>org.test</groupId>
+            <artifactId>super-pom</artifactId>
+            <version>1.0.0-SNAPSHOT</version>
+        </parent>
+
+        <groupId>org.test.module</groupId>
+        <artifactId>modules-root</artifactId>
+        <packaging>pom</packaging>
+
+        <modules>
+            <module>moduleA</module>
+            <module>moduleB</module>
+        </modules>
     
-    </project>
+- moduleA will look like this. Pay attention that this will inherit from module-parent (parent) which is exactly one level above...
+
+        <parent>
+            <groupId>org.test.module</groupId>
+            <artifactId>module-parent</artifactId>
+            <version>1.0.0-SNAPSHOT</version>
+        </parent>
+
+        <artifactId>moduleA</artifactId>
+        <packaging>..</packaging>
+
+        <....other dependencies..>
