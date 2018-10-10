@@ -29,7 +29,7 @@ Apache Maven is a software project management and comprehension tool. Based on t
 - append *JDK bin directory path* and *maven bin directory path* to **PATH** environment variable
 - check JDK installed and configured correctly
     - javac -version
-- check java installed and configured correctly
+- check Maven installed and configured correctly
     - mvn -v
 
 ## Creating a Project using Maven command
